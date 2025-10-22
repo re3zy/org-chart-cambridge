@@ -6,7 +6,7 @@
  */
 
 import { useMemo, useState, useCallback } from 'react';
-import { client, useConfig, useElementData, useVariable } from '@sigmacomputing/plugin';
+import { client, useConfig, useElementData } from '@sigmacomputing/plugin';
 import { PluginConfig, OrgChartNode } from './types';
 import { buildOrgChartData } from './utils/dataTransform';
 import OrgChartComponent from './components/OrgChartComponent';
@@ -33,7 +33,6 @@ client.config.configureEditorPanel([
   { name: 'level8', type: 'column', source: 'source', allowMultiple: false },
   { name: 'level9', type: 'column', source: 'source', allowMultiple: false },
   { name: 'level10', type: 'column', source: 'source', allowMultiple: false },
-  { name: 'searchEnabled', type: 'variable' },
 ]);
 
 /**
@@ -43,19 +42,12 @@ function App() {
   // Get configuration and data from Sigma
   const config = useConfig() as PluginConfig;
   const sigmaData = useElementData(config.source);
-  const searchEnabledVar = useVariable(config.searchEnabled || '');
-
+  
   // Local state for search
   const [searchNodeId, setSearchNodeId] = useState<string | null>(null);
 
-  // Check if search is enabled (default to true)
-  const searchEnabled = useMemo(() => {
-    if (!searchEnabledVar || !Array.isArray(searchEnabledVar) || searchEnabledVar.length < 1) {
-      return true;
-    }
-    const value = searchEnabledVar[0]?.defaultValue as { value?: boolean };
-    return value?.value ?? true;
-  }, [searchEnabledVar]);
+  // Search is enabled by default (variable is optional)
+  const searchEnabled = true;
 
   /**
    * Transform Sigma data into org chart nodes

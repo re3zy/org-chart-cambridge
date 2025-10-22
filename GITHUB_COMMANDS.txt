@@ -1,0 +1,63 @@
+# 🚀 Ready to Deploy - Copy These Commands
+
+## Step 1: Create GitHub Repository
+
+Go to: https://github.com/new
+
+Settings:
+- Repository name: org-chart-cambridge
+- Description: Organizational chart plugin for Sigma Computing
+- Visibility: Public or Private (your choice)
+- ⚠️ DO NOT check "Add README", "Add .gitignore", or "Add license"
+- Click "Create repository"
+
+## Step 2: Push to GitHub
+
+After creating the repo, GitHub will show you commands.
+Replace YOUR_USERNAME with your actual GitHub username:
+
+git remote add origin https://github.com/YOUR_USERNAME/org-chart-cambridge.git
+git push -u origin main
+
+Example (if your username is "ramsmith"):
+git remote add origin https://github.com/ramsmith/org-chart-cambridge.git
+git push -u origin main
+
+## Step 3: Deploy to Netlify
+
+Go to: https://app.netlify.com
+
+1. Click "Add new site" → "Import an existing project"
+2. Choose "Deploy with GitHub"
+3. Authorize Netlify (if first time)
+4. Select repository: org-chart-cambridge
+5. Settings should auto-detect:
+   - Branch: main
+   - Build command: npm run build
+   - Publish directory: dist
+6. Click "Deploy site"
+
+Done! Your plugin will be live at:
+https://[random-name].netlify.app
+
+Optional: Customize to:
+https://org-chart-cambridge.netlify.app
+
+## Step 4: Use in Sigma
+
+In your Sigma workbook:
+1. Add "Custom Plugin" element
+2. Enter URL: https://org-chart-cambridge.netlify.app
+3. Configure data mappings
+4. Done! ✅
+
+---
+
+Current status:
+✅ Git initialized
+✅ Code committed
+✅ Branch: main
+✅ Build verified (no TypeScript errors)
+✅ netlify.toml configured
+✅ Ready to push to GitHub!
+
