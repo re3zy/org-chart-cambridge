@@ -26,8 +26,10 @@
     Access-Control-Allow-Methods = "GET, POST, OPTIONS"
     Access-Control-Allow-Headers = "Content-Type"
     
+    # Allow iframe embedding from Sigma Computing
+    Content-Security-Policy = "frame-ancestors https://*.sigmacomputing.com"
+    
     # Security headers
-    X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
@@ -54,4 +56,3 @@
 
 [build.processing.images]
   compress = true
-
