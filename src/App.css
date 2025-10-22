@@ -1,0 +1,82 @@
+/**
+ * Global styles for the Org Chart plugin
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* d3-org-chart overrides */
+.svg-chart-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Smooth transitions for zoom and pan */
+.svg-chart-container svg {
+  transition: transform 0.3s ease;
+}
+
+/* Node hover effects */
+.svg-chart-container .node:hover {
+  cursor: pointer;
+}
+
+/* Connection lines styling */
+.svg-chart-container .link {
+  fill: none;
+  stroke: #CBD5E1;
+  stroke-width: 1.5px;
+}
+
+/* Button styling for expand/collapse */
+.svg-chart-container .node-button-g {
+  cursor: pointer;
+}
+
+.svg-chart-container .node-button-g:hover circle {
+  fill: #f3f4f6;
+}
+
+/* Custom scrollbar for dropdown */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
